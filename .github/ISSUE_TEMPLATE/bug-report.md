@@ -1,35 +1,24 @@
 ---
 name: Bug Report
 about: Bug report template
-title: ''
-labels: ''
-assignees: Nebulizer1213
-
+title: ""
+labels: "bug"
 ---
 
 # Bug Report
 
-Before you submit this request make sure you are using the latest version of aiohttp-ratelimiter.
-If you want faster support you can go to https://jgltechnologies.com/contact and link this issue in the message box.
+Explain Bug details here.
 
-### Python version
+## Python version
 
+## OS
 
-
-### OS
-
-
-
-### Code to generate the bug
-
+## Code to generate the bug
 
 ```py
 # Code to generate the bug
 ```
 
+## What is expected to happen
 
-### What is expected to happen
-
-
-
-### What actually happens
+## What actually happens

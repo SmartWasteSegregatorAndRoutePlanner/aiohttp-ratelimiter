@@ -10,14 +10,7 @@ def get_long_description():
         return file.read()
 
 
-VERSION = "4.0.0"
-
-classifiers = [
-    "Development Status :: 5 - Production/Stable",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-]
+VERSION = "4.0.1"
 
 setup(
     name="aiohttp-ratelimiter",
@@ -25,12 +18,10 @@ setup(
     description="A simple rate limiter for aiohttp.web",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    url="https://jgltechnologies.com/aiohttplimiter",
-    author="George Luca",
-    author_email="fixingg@gmail.com",
-    license="MIT",
-    classifiers=classifiers,
-    keywords="",
+    url="https://github.com/SmartWasteSegregatorAndRoutePlanner/aiohttp-ratelimiter",
     packages=find_packages(),
-    install_requires=["aiohttp", "limits", "coredis", "emcache"],
+    install_requires=["aiohttp", "limits"],
+    extras_require={
+        "extra": ["coredis", "emcache"]
+    }
 )
