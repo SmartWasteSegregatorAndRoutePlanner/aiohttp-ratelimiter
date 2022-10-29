@@ -7,3 +7,5 @@ aiohttplimiter/__pycache__/
 .vscode/settings.json
 /venv/
 /.idea/
+*.egg-info*
+*dist*

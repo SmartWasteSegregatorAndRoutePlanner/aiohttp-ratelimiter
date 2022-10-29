@@ -2,7 +2,7 @@ from functools import wraps
 import json
 from typing import Callable, Awaitable, Union, Optional, Coroutine, Any
 import asyncio
-from aiohttp.web import Request, Response
+from aiohttp.web import Request, Response, View
 from limits.aio.storage import Storage, MemoryStorage
 from limits.aio.strategies import MovingWindowRateLimiter
 from limits import parse
@@ -53,9 +53,12 @@ class BaseRateLimitDecorator:
 
     def __call__(self, func: Union[Callable, Awaitable]) -> Coroutine[Any, Any, Response]:
         @wraps(func)
-        async def wrapper(request: Request) -> Response:
+        async def wrapper(view_obj: View) -> Response:
+            assert isinstance(view_obj, View)
+            
+            request = view_obj.request 
             key = self.keyfunc(request)
-            db_key = f"{key}:{self.path_id or request.path}"
+            db_key = f"{key}:{request.path}"
 
             if isinstance(self.db, MemoryStorage):
                 if not await self.db.check():
